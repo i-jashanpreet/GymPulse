@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /* Brand Colors */
+    --primary-orange: #df5425;
+    --secondary-maroon: #b10035;
+    
+    /* Background & Surface Colors */
+    --bg-white: #ffffff;
+    --surface-light: #f8f9fa;
+    --text-main: #1a1a1a;
+    --text-muted: #6b7280;
+    
+    /* Effects */
+    --shadow-soft: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+    --shadow-strong: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --border-radius-lg: 24px;
+    --border-radius-md: 16px;
+    
+    /* Gradients */
+    --gradient-brand: linear-gradient(135deg, var(--primary-orange), var(--secondary-maroon));
+    
+    /* RGB Backgrounds for Transparency */
+    --bg-white-rgb: 255, 255, 255;
+    --surface-light-rgb: 248, 249, 250;
+}
+
+:root.dark-theme {
+    --bg-white: #111111;
+    --surface-light: #1f1f1f;
+    --text-main: #f3f4f6;
+    --text-muted: #9ca3af;
+    --shadow-soft: 0 4px 15px rgba(0,0,0,0.4);
+    --shadow-strong: 0 10px 25px rgba(0,0,0,0.6);
+    --bg-white-rgb: 17, 17, 17;
+    --surface-light-rgb: 31, 31, 31;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #e5e7eb; /* Desktop background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--text-main);
+}
+
+#root {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes loadProgress {
+    0% {
+        left: 0%;
+        transform: translateX(0%);
+    }
+    100% {
+        left: 100%;
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes wave {
+    0% { transform: rotate( 0.0deg) }
+    10% { transform: rotate(14.0deg) }
+    20% { transform: rotate(-8.0deg) }
+    30% { transform: rotate(14.0deg) }
+    40% { transform: rotate(-4.0deg) }
+    50% { transform: rotate(10.0deg) }
+    60% { transform: rotate( 0.0deg) }
+    100% { transform: rotate( 0.0deg) }
+}

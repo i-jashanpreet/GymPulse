@@ -1,0 +1,65 @@
+.bottomNav {
+    margin-top: auto;
+    background: var(--bg-white);
+    padding: 12px 8px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: var(--border-radius-lg);
+    border-top-right-radius: var(--border-radius-lg);
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.05);
+    z-index: 1000;
+}
+
+:global(.dark-theme) .bottomNav {
+    background: var(--surface-light);
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+}
+
+.navItem {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    position: relative;
+    padding: 4px 0;
+}
+
+.navItem.active {
+    color: var(--primary-orange);
+}
+
+.navItem.active::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    width: 4px;
+    height: 4px;
+    background: var(--primary-orange);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--primary-orange);
+}
+
+.navItem svg {
+    transition: transform 0.3s ease;
+}
+
+.active svg {
+    filter: drop-shadow(0 0 8px rgba(223, 84, 37, 0.4));
+}
+
+.navItem span {
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0px;
+    white-space: nowrap;
+}
+
+.navItem:hover {
+    color: var(--primary-orange);
+}
