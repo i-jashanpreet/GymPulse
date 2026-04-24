@@ -5,7 +5,7 @@ import Layout from './components/layout/Layout';
 import SplashScreen from './components/screens/SplashScreen';
 import LoginScreen from './components/screens/LoginScreen';
 import HomeScreen from './components/screens/HomeScreen';
-import LiveViewScreen from './components/screens/LiveViewScreen';
+
 import AnalyticsScreen from './components/screens/AnalyticsScreen';
 import AlertsScreen from './components/screens/AlertsScreen';
 import ProfileScreen from './components/screens/ProfileScreen';
@@ -22,7 +22,7 @@ const App: React.FC = () => {
               <Route path="/" element={<SplashScreen />} />
               <Route path="/login" element={<LoginScreen />} />
               <Route path="/home" element={<HomeScreen />} />
-              <Route path="/live-view" element={<LiveViewScreen />} />
+
               <Route path="/analytics" element={<AnalyticsScreen />} />
               <Route path="/alerts" element={<AlertsScreen />} />
               <Route path="/profile" element={<ProfileScreen />} />

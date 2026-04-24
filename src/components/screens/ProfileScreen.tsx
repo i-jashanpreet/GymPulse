@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Clock, Settings, LogOut } from 'lucide-react';
+import { Settings, LogOut } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import styles from './Screen.module.css';
 import logo from '../../assets/logo.png';
@@ -39,21 +39,7 @@ const ProfileScreen: React.FC = () => {
 
           <div className={styles.profileContent}>
             
-            {/* Info Card */}
-            <div className={styles.profileCard}>
-                <div className={styles.profileCardHeader}>
-                    <Clock size={20} style={{ color: 'var(--primary-orange)' }} />
-                    <h4>Workout Preferences</h4>
-                </div>
-                <div className={styles.profileInfoRow}>
-                    <span className={styles.infoLabel}>Preferred Time</span>
-                    <span className={styles.infoValue}>Evening (6PM - 8PM)</span>
-                </div>
-                <div className={styles.profileInfoRow}>
-                    <span className={styles.infoLabel}>Primary Zone</span>
-                    <span className={styles.infoValue}>Weight Zone</span>
-                </div>
-            </div>
+
 
             {/* Settings Card */}
             <div className={styles.profileCard}>

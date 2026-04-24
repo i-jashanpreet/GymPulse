@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Home, Video, BarChart3, Bell, User } from 'lucide-react';
+import { Home, BarChart3, Bell, User } from 'lucide-react';
 import styles from './BottomNav.module.css';
 
 const BottomNav: React.FC = () => {
@@ -13,13 +13,7 @@ const BottomNav: React.FC = () => {
         <Home size={20} />
         <span>Home</span>
       </NavLink>
-      <NavLink 
-        to="/live-view" 
-        className={({ isActive }) => `${styles.navItem} ${isActive ? styles.active : ''}`}
-      >
-        <Video size={20} />
-        <span>Live View</span>
-      </NavLink>
+
       <NavLink 
         to="/analytics" 
         className={({ isActive }) => `${styles.navItem} ${isActive ? styles.active : ''}`}

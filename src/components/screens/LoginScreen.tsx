@@ -38,7 +38,7 @@ const LoginScreen: React.FC = () => {
         <div className={styles.loginCard}>
           <form onSubmit={handleLogin}>
             <div className={styles.inputGroup}>
-              <label htmlFor="college-email">College Gmail</label>
+              <label htmlFor="college-email">Student Mail</label>
               <input 
                 type="email" 
                 id="college-email" 

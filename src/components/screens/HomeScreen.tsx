@@ -1,10 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Clock, Zap } from 'lucide-react';
 import styles from './Screen.module.css';
 import logo from '../../assets/logo.png';
 import { useGymData } from '../../context/DataContext';
 
 const HomeScreen: React.FC = () => {
+  const defaultDays = [
+      { label: 'M', height: 92, color: styles.bgRed, peakTime: '6 PM - 8 PM', lessCrowdTime: '6 AM - 8 AM' },
+      { label: 'T', height: 60, color: styles.bgOrange, peakTime: '5 PM - 7 PM', lessCrowdTime: '7 AM - 9 AM' },
+      { label: 'W', height: 50, color: styles.bgOrange, peakTime: '6 PM - 8 PM', lessCrowdTime: '8 AM - 10 AM' },
+      { label: 'T', height: 25, color: styles.bgGreen, peakTime: '7 PM - 9 PM', lessCrowdTime: '6 AM - 8 AM' },
+      { label: 'F', height: 68, color: styles.bgOrange, peakTime: '5 PM - 8 PM', lessCrowdTime: '7 AM - 9 AM' },
+      { label: 'S', height: 100, color: styles.bgRed, peakTime: '9 AM - 11 AM', lessCrowdTime: '8 PM - 10 PM' }
+  ];
+
+  const [days, setDays] = useState(defaultDays.map(d => ({ ...d, height: 0 })));
+  const [selectedDayIndex, setSelectedDayIndex] = useState(0);
+
+  useEffect(() => {
+      const timer = setTimeout(() => {
+          setDays(defaultDays);
+      }, 100);
+      return () => clearTimeout(timer);
+  }, []);
+
   const { data } = useGymData();
   const crowdCount = data.totalCrowd;
 
@@ -14,10 +33,10 @@ const HomeScreen: React.FC = () => {
 
   let statusClass = styles.yellow;
   let statusText = 'Medium';
-  if (crowdCount < 35) {
+  if (crowdCount < 25) {
     statusClass = styles.green;
     statusText = 'Low';
-  } else if (crowdCount > 75) {
+  } else if (crowdCount > 55) {
     statusClass = styles.red;
     statusText = 'Busy';
   }
@@ -55,7 +74,7 @@ const HomeScreen: React.FC = () => {
             <div className={styles.capacityBlock}>
               <span className={styles.divider}>/</span>
               <div className={styles.capacityData}>
-                <span className={styles.smallNumber}>100</span>
+                <span className={styles.smallNumber}>70</span>
                 <span className={styles.labelCapacity}>Capacity</span>
               </div>
             </div>
@@ -63,7 +82,7 @@ const HomeScreen: React.FC = () => {
 
           <div className={styles.progressContainer}>
             <div className={styles.progressBarBg}>
-              <div className={`${styles.progressBarFill} ${statusClass}`} style={{ width: `${crowdCount}%` }}></div>
+              <div className={`${styles.progressBarFill} ${statusClass}`} style={{ width: `${Math.min(100, (crowdCount / 70) * 100)}%` }}></div>
             </div>
             <div className={styles.progressLabels}>
               <span>Empty</span>
@@ -72,38 +91,39 @@ const HomeScreen: React.FC = () => {
           </div>
         </div>
 
-        {/* Below Cards Section */}
-        <div className={styles.infoCardsGrid}>
-          <div className={styles.infoCard}>
-            <div className={`${styles.iconWrapper} ${styles.orange}`}>
-              <Clock size={20} />
-            </div>
-            <div className={styles.infoContent}>
-              <h4>Best Time Today</h4>
-              <p>3 PM - 5 PM</p>
-            </div>
+        <div className={styles.analyticsContainer} style={{ paddingTop: '12px' }}>
+          <div className={styles.analyticsCard}>
+              <h3>Busiest Days Last Week</h3>
+              <div className={styles.barChartContainer}>
+                  {days.map((day, index) => (
+                      <div 
+                        key={index} 
+                        className={styles.barItem}
+                        onClick={() => setSelectedDayIndex(index)}
+                        style={{ cursor: 'pointer', opacity: selectedDayIndex === index ? 1 : 0.5, transition: 'opacity 0.2s' }}
+                      >
+                          <div className={`${styles.bar} ${day.color}`} style={{ height: `${day.height}%` }}></div>
+                          <span className={styles.dayLabel}>{day.label}</span>
+                      </div>
+                  ))}
+              </div>
           </div>
           
-          <div className={styles.infoCard}>
-            <div className={`${styles.iconWrapper} ${styles.maroon}`}>
-              <Zap size={20} />
+          <div className={styles.highlightsGrid} style={{ paddingTop: '8px' }}>
+            <div className={styles.highlightCard} style={{ padding: '12px' }}>
+                <h4 style={{ fontSize: '10px' }}>Peak Time</h4>
+                <div className={styles.highlightValue} style={{ fontSize: '15px' }}>{defaultDays[selectedDayIndex]?.peakTime}</div>
+                <div className={`${styles.highlightTrend} ${styles.negative}`}>Usually Busy</div>
             </div>
-            <div className={styles.infoContent}>
-              <h4>Peak Time</h4>
-              <p>6 PM - 8 PM</p>
-            </div>
-          </div>
-          
-          <div className={`${styles.infoCard} ${styles.fullWidth}`}>
-            <div className={`${styles.iconWrapper} ${styles.gray}`}>
-               <Clock size={20} />
-            </div>
-            <div className={styles.infoContent}>
-              <h4>Avg Wait Time</h4>
-              <p>5 min for popular machines</p>
+            
+            <div className={styles.highlightCard} style={{ padding: '12px' }}>
+                <h4 style={{ fontSize: '10px' }}>Less Crowded</h4>
+                <div className={styles.highlightValue} style={{ fontSize: '15px' }}>{defaultDays[selectedDayIndex]?.lessCrowdTime}</div>
+                <div className={`${styles.highlightTrend} ${styles.positive}`}>Best Time</div>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   );

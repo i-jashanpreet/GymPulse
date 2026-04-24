@@ -51,7 +51,7 @@
 
 :global(.dark-theme) .brandLogoImg {
     filter: invert(1) hue-rotate(180deg) brightness(1.2);
-    mix-blend-mode: normal;
+    mix-blend-mode: screen;
 }
 
 .appName {
@@ -131,12 +131,12 @@
 
 :global(.dark-theme) .brandLogoImgSmall {
     filter: invert(1) hue-rotate(180deg) brightness(1.2);
-    mix-blend-mode: normal;
+    mix-blend-mode: screen;
 }
 
 .loginBody {
     flex-grow: 1;
-    padding: 32px 24px;
+    padding: 24px 24px 16px;
     display: flex;
     flex-direction: column;
 }
@@ -241,13 +241,13 @@
 }
 
 .quickLogin {
-    margin-top: 32px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 12px;
     border-top: 1px solid #f3f4f6;
-    padding-top: 24px;
+    padding-top: 16px;
 }
 
 :global(.dark-theme) .quickLogin {
@@ -282,11 +282,19 @@
     transform: scale(0.95);
 }
 
+.loginFooter {
+    text-align: center;
+    padding: 8px 16px 16px;
+    font-size: 14px;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
 /* Dashboard Home */
 .dashboardLayout {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    min-height: 100%;
     position: relative;
     padding-bottom: 80px; /* Space for nav */
 }
@@ -381,10 +389,11 @@
     background: var(--bg-white);
     border-radius: var(--border-radius-lg);
     padding: 24px;
-    margin: 24px 24px 0;
+    margin: 12px 24px 0;
     box-shadow: var(--shadow-soft);
     position: relative;
     overflow: hidden;
+    flex-shrink: 0;
 }
 
 .cardHeader {
@@ -579,7 +588,7 @@
 
 /* Live View Screen */
 .liveViewHeader {
-    padding: 60px 24px 20px;
+    padding: 60px 24px 12px;
     text-align: center;
     background: var(--bg-white);
     border-bottom: 1px solid #f3f4f6;
@@ -670,6 +679,7 @@
     flex-direction: column;
     gap: 20px;
     padding-bottom: 40px;
+    flex-shrink: 0;
 }
 
 .analyticsCard {
