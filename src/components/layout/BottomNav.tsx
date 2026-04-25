@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Home, BarChart3, Bell, User } from 'lucide-react';
+import { Home, TrendingUp, User } from 'lucide-react';
 import styles from './BottomNav.module.css';
 
 const BottomNav: React.FC = () => {
@@ -18,16 +18,10 @@ const BottomNav: React.FC = () => {
         to="/analytics" 
         className={({ isActive }) => `${styles.navItem} ${isActive ? styles.active : ''}`}
       >
-        <BarChart3 size={20} />
-        <span>Analytics</span>
+        <TrendingUp size={20} />
+        <span>Progress</span>
       </NavLink>
-      <NavLink 
-        to="/alerts" 
-        className={({ isActive }) => `${styles.navItem} ${isActive ? styles.active : ''}`}
-      >
-        <Bell size={20} />
-        <span>Alerts</span>
-      </NavLink>
+
       <NavLink 
         to="/profile" 
         className={({ isActive }) => `${styles.navItem} ${isActive ? styles.active : ''}`}

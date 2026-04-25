@@ -1,9 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Settings, LogOut } from 'lucide-react';
+import { Settings, LogOut, MapPin } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import styles from './Screen.module.css';
 import logo from '../../assets/logo.png';
+import bannerImg from '../../assets/rishihood_banner.png';
 
 const ProfileScreen: React.FC = () => {
   const navigate = useNavigate();
@@ -20,21 +21,39 @@ const ProfileScreen: React.FC = () => {
   };
 
   const userName = extractNameFromEmail(email);
-  const avatarUrl = email === 'arjan.singh@rishihood.edu.in' 
-    ? 'https://i.pravatar.cc/150?u=a042581f4e29026704d' 
-    : `https://ui-avatars.com/api/?name=${encodeURIComponent(userName)}&background=random&size=150&color=fff`;
+  const avatarUrl = `https://ui-avatars.com/api/?name=${encodeURIComponent(userName)}&background=df5425&size=150&color=fff`;
 
   return (
     <div className={`${styles.screen} ${styles.profileScreen}`}>
        <div className={styles.profileLayout}>
           <div className={styles.profileHeader}>
             <img src={logo} alt="Rishihood Logo" className={styles.brandLogoTopLeft} />
-            <h3>Profile</h3>
-            <div className={styles.profileAvatarLarge}>
-                <img src={avatarUrl} alt={`${userName} Profile`} />
+            <div style={{ height: '64px', width: '100%', background: 'var(--bg-white)' }}></div>
+            
+            <div 
+              className={styles.profileBanner}
+              style={{
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url(${bannerImg})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center 15%'
+              }}
+            >
+                <span>#ApproachingRishihood</span>
             </div>
-            <h3>{userName}</h3>
-            <p className={styles.profileDept}>Computer Science Dept.</p>
+            
+            <div className={styles.profileDetailsLeft}>
+                <div className={styles.profileAvatarLarge}>
+                    <img src={avatarUrl} alt={`${userName} Profile`} />
+                </div>
+                <div className={styles.profileText}>
+                    <h3>{userName}</h3>
+                    <p className={styles.profileDept}>B. Tech (Computer Science & Artificial Intelligence) student at Rishihood University</p>
+                    <div className={styles.profileLocation}>
+                        <MapPin size={16} />
+                        <span>Sonipat, Delhi NCR, Haryana</span>
+                    </div>
+                </div>
+            </div>
           </div>
 
           <div className={styles.profileContent}>
@@ -48,14 +67,7 @@ const ProfileScreen: React.FC = () => {
                     <h4>App Settings</h4>
                 </div>
                 
-                <div className={styles.settingsRow}>
-                    <span>Push Notifications</span>
-                    <label className={styles.switch}>
-                        <input type="checkbox" defaultChecked />
-                        <span className={`${styles.slider} ${styles.round}`}></span>
-                    </label>
-                </div>
-                
+
                 <div className={styles.settingsRow}>
                     <span>Dark Mode</span>
                     <label className={styles.switch}>

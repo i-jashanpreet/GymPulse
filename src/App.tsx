@@ -7,7 +7,6 @@ import LoginScreen from './components/screens/LoginScreen';
 import HomeScreen from './components/screens/HomeScreen';
 
 import AnalyticsScreen from './components/screens/AnalyticsScreen';
-import AlertsScreen from './components/screens/AlertsScreen';
 import ProfileScreen from './components/screens/ProfileScreen';
 
 import { GymDataProvider } from './context/DataContext';
@@ -24,7 +23,6 @@ const App: React.FC = () => {
               <Route path="/home" element={<HomeScreen />} />
 
               <Route path="/analytics" element={<AnalyticsScreen />} />
-              <Route path="/alerts" element={<AlertsScreen />} />
               <Route path="/profile" element={<ProfileScreen />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>

@@ -14,7 +14,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <MobileFrame>
-      <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', height: '100%', position: 'relative' }}>
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
