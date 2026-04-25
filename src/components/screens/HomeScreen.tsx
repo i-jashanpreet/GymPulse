@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Clock, Zap } from 'lucide-react';
+import { Clock } from 'lucide-react';
 import styles from './Screen.module.css';
 import logo from '../../assets/logo.png';
 import { useGymData } from '../../context/DataContext';
@@ -46,12 +46,12 @@ const HomeScreen: React.FC = () => {
         {/* Top Section */}
         <div className={styles.liveViewHeader}>
           <img src={logo} alt="Rishihood Logo" className={styles.brandLogoTopLeft} />
-          <h2 style={{ 
-            fontSize: '28px', 
+          <h2 style={{
+            fontSize: '28px',
             fontWeight: '800',
-            display: 'flex', 
-            justifyContent: 'center', 
-            alignItems: 'center', 
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
             color: 'var(--secondary-maroon)',
             letterSpacing: '-0.5px',
             marginBottom: '4px',

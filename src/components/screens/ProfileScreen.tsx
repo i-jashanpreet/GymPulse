@@ -33,7 +33,7 @@ const ProfileScreen: React.FC = () => {
             <div 
               className={styles.profileBanner}
               style={{
-                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url(${bannerImg})`,
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url(${bannerImg})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center 15%'
               }}
