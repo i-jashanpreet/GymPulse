@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Clock } from 'lucide-react';
 import styles from './Screen.module.css';
 import logo from '../../assets/logo.png';
 import { useGymData } from '../../context/DataContext';
