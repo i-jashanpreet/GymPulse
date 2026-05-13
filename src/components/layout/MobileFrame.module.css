@@ -3,21 +3,94 @@
     height: 812px;
     background-color: var(--bg-white);
     border-radius: 40px;
-    box-shadow: var(--shadow-strong);
     overflow: hidden;
     position: relative;
-    border: 8px solid #ffffff;
-    outline: 2px solid #e5e7eb;
+    border: 8px solid #000000;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
 }
 
 :global(.dark-theme) .mobileFrame {
-    border-color: #1a1a1a;
-    outline-color: #333333;
+    border-color: #000000;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.statusBar {
+    height: 44px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 6px 24px 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    color: var(--text-main);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.time {
+    width: 80px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.statusIcons {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    width: 80px;
+    justify-content: flex-end;
+}
+
+.batteryPercentage {
+    font-size: 12px;
+    font-weight: 700;
+    margin-right: 2px;
+}
+
+.icon {
+    display: block;
+}
+
+.notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 28px;
+    background-color: #000000;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.camera {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #1a1a1a;
+    box-shadow: inset 0 0 2px rgba(255,255,255,0.2);
+}
+
+.speaker {
+    width: 40px;
+    height: 4px;
+    border-radius: 4px;
+    background-color: #262626;
 }
 
 .appContainer {
     width: 100%;
-    height: 100%;
+    flex: 1;
     position: relative;
     background-color: var(--bg-white);
     overflow: hidden;
