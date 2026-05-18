@@ -33,13 +33,13 @@ export const useGymData = () => {
 
 export const GymDataProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [data, setData] = useState<GymData>({
-        totalCrowd: 42,
-        maxTotalCapacity: 100,
+        totalCrowd: 19,
+        maxTotalCapacity: 30,
         zones: {
-            cardio: { name: 'Cardio Zone', maxCapacity: 25, currentOccupancy: 18 },
-            weights: { name: 'Weight Zone', maxCapacity: 40, currentOccupancy: 22 },
-            yoga: { name: 'Yoga Room', maxCapacity: 20, currentOccupancy: 2 },
-            treadmills: { name: 'Treadmills', maxCapacity: 15, currentOccupancy: 10 }
+            cardio: { name: 'Cardio Zone', maxCapacity: 10, currentOccupancy: 8 },
+            weights: { name: 'Weight Zone', maxCapacity: 12, currentOccupancy: 7 },
+            yoga: { name: 'Yoga Room', maxCapacity: 4, currentOccupancy: 2 },
+            treadmills: { name: 'Treadmills', maxCapacity: 4, currentOccupancy: 2 }
         }
     });
 

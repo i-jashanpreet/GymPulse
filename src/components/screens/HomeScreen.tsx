@@ -32,10 +32,10 @@ const HomeScreen: React.FC = () => {
 
   let statusClass = styles.yellow;
   let statusText = 'Medium';
-  if (crowdCount < 25) {
+  if (crowdCount < 15) {
     statusClass = styles.green;
     statusText = 'Low';
-  } else if (crowdCount > 55) {
+  } else if (crowdCount >= 25) {
     statusClass = styles.red;
     statusText = 'Busy';
   }
@@ -83,7 +83,7 @@ const HomeScreen: React.FC = () => {
             <div className={styles.capacityBlock}>
               <span className={styles.divider}>/</span>
               <div className={styles.capacityData}>
-                <span className={styles.smallNumber}>70</span>
+                <span className={styles.smallNumber}>30</span>
                 <span className={styles.labelCapacity}>Capacity</span>
               </div>
             </div>
@@ -91,7 +91,7 @@ const HomeScreen: React.FC = () => {
 
           <div className={styles.progressContainer}>
             <div className={styles.progressBarBg}>
-              <div className={`${styles.progressBarFill} ${statusClass}`} style={{ width: `${Math.min(100, (crowdCount / 70) * 100)}%` }}></div>
+              <div className={`${styles.progressBarFill} ${statusClass}`} style={{ width: `${Math.min(100, (crowdCount / 30) * 100)}%` }}></div>
             </div>
             <div className={styles.progressLabels}>
               <span>Empty</span>
